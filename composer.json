@@ -1,14 +1,14 @@
 {
     "type": "library",
-    "name": "nguyenanhung/template-php-lib",
-    "description": "Template for repository helper, library - Basic, Simple and Lightweight",
+    "name": "nguyenanhung/lazy-auto-build-code",
+    "description": "Build code in the style of a sloth",
     "keywords": [
-        "template",
+        "build",
         "helper",
         "library",
         "php"
     ],
-    "homepage": "https://github.com/nguyenanhung/template-php-lib",
+    "homepage": "https://github.com/nguyenanhung/lazy-auto-build-code",
     "license": "MIT",
     "minimum-stability": "stable",
     "authors": [
@@ -20,11 +20,12 @@
         }
     ],
     "require": {
-        "php": ">=5.6"
+        "php": ">=5.6",
+        "nguyenanhung/filesystem-helper": "^2.0 || ^1.0"
     },
     "autoload": {
         "psr-4": {
-            "nguyenanhung\\Libraries\\TemplateREPLACE\\": "src/"
+            "nguyenanhung\\Utils\\LazyAutoBuild\\": "src/"
         },
         "files": [
             "helpers/helpers.php"

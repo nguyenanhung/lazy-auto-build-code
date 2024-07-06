@@ -1,57 +1,8 @@
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/template-php-lib/v)](https://packagist.org/packages/nguyenanhung/template-php-lib) [![Total Downloads](http://poser.pugx.org/nguyenanhung/template-php-lib/downloads)](https://packagist.org/packages/nguyenanhung/template-php-lib) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/template-php-lib/v/unstable)](https://packagist.org/packages/nguyenanhung/template-php-lib) [![License](http://poser.pugx.org/nguyenanhung/template-php-lib/license)](https://packagist.org/packages/nguyenanhung/template-php-lib) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/template-php-lib/require/php)](https://packagist.org/packages/nguyenanhung/template-php-lib)
+[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/v)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![Total Downloads](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/downloads)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/v/unstable)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![License](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/license)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/require/php)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
 
-# Template start helper, library
+# Lazy Automatic Build Code
 
-Template for repository helper, library - Basic, Simple and Lightweight
-
-## Use this Template
-
-First, you can `Use this template` for new project: [Use this template](https://github.com/nguyenanhung/template-php-lib/generate)
-
-Second, clone your project to your to path in your machine
-
-Finally, your edit file `composer.json` in root folder of project
-
-```json
-{
-    "type": "library",
-    "name": "nguyenanhung/template-php-lib",
-    "description": "Template for repository helper, library - Basic, Simple and Lightweight",
-    "keywords": [
-        "template",
-        "helper",
-        "library",
-        "php"
-    ],
-    "homepage": "https://github.com/nguyenanhung/template-php-lib",
-    "license": "MIT",
-    "minimum-stability": "stable",
-    "authors": [
-        {
-            "name": "Nguyen An Hung",
-            "email": "dev@nguyenanhung.com",
-            "homepage": "https://nguyenanhung.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.6"
-    },
-    "autoload": {
-        "psr-4": {
-            "nguyenanhung\\Libraries\\REPLACE_FOR_YOUR\\": "src/"
-        },
-        "files": [
-            "helpers/helpers.php"
-        ]
-    }
-}
-
-```
-
-Replace name space `REPLACE_FOR_YOUR` to Library space, example: `JSON`. After change namespace, project namespace same `"nguyenanhung\\Libraries\\JSON\\": "src/"`
-
-Finished, your can writing new awesome helper and library now time.
+Build code in the style of a sloth
 
 ## Contact & Support
 
