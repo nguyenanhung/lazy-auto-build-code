@@ -86,6 +86,7 @@ class FileDataSynchronization
             echo "\n";
             $this->echoBreakLine();
             echo "Finished script\n";
+            echo self::POWERED_BY . PHP_EOL;
             $this->echoBreakLine();
         }
     }
