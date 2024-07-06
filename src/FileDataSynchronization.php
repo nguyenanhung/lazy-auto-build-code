@@ -29,6 +29,10 @@ class FileDataSynchronization
     protected $profilePrefix;
     protected $scriptName;
     protected $scriptLocation;
+    protected $folderSync;
+    protected $vendorDataMigrationsDir;
+    protected $vendorSyncDir;
+    protected $vendorTemplatesDir;
 
     public function __construct(
         $vendorDir = '',
@@ -52,6 +56,19 @@ class FileDataSynchronization
         $this->profilePrefix = $profilePrefix;
         $this->scriptName = $scriptName;
         $this->scriptLocation = $scriptLocation;
+        return $this;
+    }
+
+    public function setupSyncDir(
+        $folderSync = '',
+        $vendorSyncDir = '',
+        $vendorDataMigrationsDir = '',
+        $vendorTemplatesDir = ''
+    ) {
+        $this->folderSync = $folderSync;
+        $this->vendorSyncDir = $vendorSyncDir;
+        $this->vendorDataMigrationsDir = $vendorDataMigrationsDir;
+        $this->vendorTemplatesDir = $vendorTemplatesDir;
         return $this;
     }
 

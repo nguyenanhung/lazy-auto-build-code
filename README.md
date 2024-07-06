@@ -4,6 +4,10 @@
 
 Build code in the style of a sloth
 
+This script was created for personal use, to automate some basic operations.
+
+Therefore, it may not be useful for most users.
+
 ## Contact & Support
 
 If any question & request, please contact following information
