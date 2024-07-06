@@ -145,6 +145,8 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
+        echo "Script copied files version: " . self::VERSION . PHP_EOL;
+
         if ( ! file_exists($sourceFile)) {
             echo "Source file does not exist: " . $this->textColor(self::COLOR_YELLOW, $sourceFile) . "\n";
             return false;
@@ -185,6 +187,8 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
+        echo "Script copied directory version: " . self::VERSION . PHP_EOL;
+
         if ( ! is_dir($source)) {
             echo "Source directory does not exist: " . $this->textColor(self::COLOR_YELLOW, $source) . "\n";
             return false;
