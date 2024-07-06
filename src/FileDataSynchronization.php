@@ -19,6 +19,7 @@ class FileDataSynchronization
     const COLOR_GREEN = "\033[0;32m";
     const COLOR_YELLOW = "\033[0;33m";
     const COLOR_CYAN = "\033[0;36m";
+    const CLI_ONLY_MSG = "This script is only for CLI environment.\n";
 
     protected $isTest = false;
     protected $homeParentDir;
@@ -86,7 +87,7 @@ class FileDataSynchronization
     public function textColor($color, $text)
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
             return false;
         }
         return $color . $text . "\033[0m";
@@ -95,7 +96,7 @@ class FileDataSynchronization
     public function echoBreakLine()
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
         } else {
             echo "===================================================\n";
         }
@@ -104,7 +105,7 @@ class FileDataSynchronization
     public function echoAuthor()
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
         } else {
             echo "\n";
             echo "  _    _                           _   _    _____ \n";
@@ -122,11 +123,11 @@ class FileDataSynchronization
     public function echoFinishedMessage($scriptName = '')
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
         } else {
             echo "\n";
             $this->echoBreakLine();
-            echo "Finished " . $scriptName . "\n";
+            echo "Finished " . $scriptName . " at " . date('Y-m-d H:i:s') . "\n";
             echo self::POWERED_BY . PHP_EOL;
             $this->echoBreakLine();
         }
@@ -135,7 +136,7 @@ class FileDataSynchronization
     public function echoHeaderScript($profileName = '', $scriptName = '', $scriptLocation = '')
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
         } else {
             $this->echoBreakLine();
             $this->echoAuthor();
@@ -165,7 +166,7 @@ class FileDataSynchronization
     public function echoPathToRun()
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
         } else {
             echo "HOME_PARENT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeParentDir) . "\n";
             echo "HOME_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeDir) . "\n";
@@ -214,7 +215,7 @@ class FileDataSynchronization
     public function removeParentHomeDir($dir)
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
             return false;
         }
 
@@ -224,7 +225,7 @@ class FileDataSynchronization
     public function copyFiles($sourceFile, $destinationFile)
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
             return false;
         }
 
@@ -269,7 +270,7 @@ class FileDataSynchronization
     public function copyDirectory($source, $destination)
     {
         if ( ! $this->isCLI()) {
-            echo "This script is only for CLI environment.\n";
+            echo self::CLI_ONLY_MSG;
             return false;
         }
 
