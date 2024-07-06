@@ -162,6 +162,22 @@ class FileDataSynchronization
         return trim($this->profileName) . ' -> Update ' . trim($name) . ' to Project Laravel Framework';
     }
 
+    public function laravelEchoFunctionSync(
+        $name = '',
+        $sourceName = '',
+        $sourceDir = '',
+        $targetName = '',
+        $targetDir = ''
+    ) {
+        $this->echoFunctionSync(
+            $this->laravelFunctionName($name),
+            $this->profilePrefix . $sourceName,
+            $sourceDir,
+            $targetName,
+            $targetDir
+        );
+    }
+
     public function echoFunctionSync($name = '', $sourceName = '', $sourceDir = '', $targetName = '', $targetDir = '')
     {
         if ( ! $this->isCLI()) {
