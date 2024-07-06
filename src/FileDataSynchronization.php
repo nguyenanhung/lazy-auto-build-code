@@ -19,6 +19,7 @@ class FileDataSynchronization
     const COLOR_YELLOW = "\033[0;33m";
     const COLOR_CYAN = "\033[0;36m";
 
+    protected $isTest = false;
     protected $homeParentDir;
     protected $homeDir;
     protected $scriptDir;
@@ -33,6 +34,12 @@ class FileDataSynchronization
     public function isCLI()
     {
         return php_sapi_name() === 'cli';
+    }
+
+    public function isTest()
+    {
+        $this->isTest = true;
+        return $this;
     }
 
     public function textColor($color, $text)
@@ -97,7 +104,7 @@ class FileDataSynchronization
             echo $this->textColor(self::COLOR_YELLOW, $projectName . "\n");
             echo "\n";
             echo $this->textColor(self::COLOR_YELLOW, $scriptName . "\n");
-            echo $this->textColor(self::COLOR_GREEN, "Run: " . $scriptLocation . ".\n");
+            echo $this->textColor(self::COLOR_GREEN, "Run: " . $scriptLocation . "\n");
             echo "\n";
             $this->echoBreakLine();
         }
@@ -145,7 +152,9 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
-        echo "Script copied files version: " . self::VERSION . PHP_EOL;
+        if ($this->isTest === true) {
+            echo "Script copied files version: " . self::VERSION . PHP_EOL;
+        }
 
         if ( ! file_exists($sourceFile)) {
             echo "Source file does not exist: " . $this->textColor(self::COLOR_YELLOW, $sourceFile) . "\n";
@@ -187,7 +196,9 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
-        echo "Script copied directory version: " . self::VERSION . PHP_EOL;
+        if ($this->isTest === true) {
+            echo "Script copied directory version: " . self::VERSION . PHP_EOL;
+        }
 
         if ( ! is_dir($source)) {
             echo "Source directory does not exist: " . $this->textColor(self::COLOR_YELLOW, $source) . "\n";
