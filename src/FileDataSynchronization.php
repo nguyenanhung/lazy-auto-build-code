@@ -30,6 +30,11 @@ class FileDataSynchronization
         $this->scriptDir = $scriptDir;
     }
 
+    public function isCLI()
+    {
+        return php_sapi_name() === 'cli';
+    }
+
     public function textColor($color, $text)
     {
         return $color . $text . "\033[0m";
