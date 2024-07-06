@@ -24,17 +24,17 @@ class FileDataSynchronization
     protected $homeDir;
     protected $vendorDir;
     protected $scriptDir;
-    protected $scriptProfileName;
-    protected $scriptProfilePrefix;
+    protected $profileName;
+    protected $profilePrefix;
     protected $scriptName;
     protected $scriptLocation;
 
     public function __construct(
-        $homeParentDir = '/home',
-        $homeDir = '',
         $vendorDir = '',
         $scriptDir = ''
     ) {
+        $homeDir = dirname($vendorDir);
+        $homeParentDir = dirname($homeDir);
         $this->homeParentDir = $homeParentDir;
         $this->homeDir = $homeDir;
         $this->vendorDir = $vendorDir;
@@ -42,13 +42,13 @@ class FileDataSynchronization
     }
 
     public function setupProfile(
-        $scriptProfileName = '',
-        $scriptProfilePrefix = '',
+        $profileName = '',
+        $profilePrefix = '',
         $scriptName = '',
         $scriptLocation = ''
     ) {
-        $this->scriptProfileName = $scriptProfileName;
-        $this->scriptProfilePrefix = $scriptProfilePrefix;
+        $this->profileName = $profileName;
+        $this->profilePrefix = $profilePrefix;
         $this->scriptName = $scriptName;
         $this->scriptLocation = $scriptLocation;
         return $this;
@@ -149,7 +149,7 @@ class FileDataSynchronization
 
     public function laravelFunctionName($name = '')
     {
-        return trim($this->scriptProfileName) . ' -> Update ' . trim($name) . ' to Project Laravel Framework';
+        return trim($this->profileName) . ' -> Update ' . trim($name) . ' to Project Laravel Framework';
     }
 
     public function echoFunctionSync($name = '', $sourceName = '', $sourceDir = '', $targetName = '', $targetDir = '')
@@ -174,6 +174,7 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
+
         return str_replace($this->homeParentDir, '', $dir);
     }
 
@@ -183,6 +184,7 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
+
         if ($this->isTest === true) {
             echo "Script copied files version: " . self::VERSION . PHP_EOL;
         }
@@ -227,6 +229,7 @@ class FileDataSynchronization
             echo "This script is only for CLI environment.\n";
             return false;
         }
+
         if ($this->isTest === true) {
             echo "Script copied directory version: " . self::VERSION . PHP_EOL;
         }
