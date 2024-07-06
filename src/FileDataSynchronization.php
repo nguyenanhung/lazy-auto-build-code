@@ -12,7 +12,7 @@ namespace nguyenanhung\Utils\LazyAutoBuild;
 
 class FileDataSynchronization
 {
-    const VERSION = '1.0.0';
+    const VERSION = '1.0.1';
     const POWERED_BY = 'Powered by Hung Nguyen - hungna.dev@gmail.com';
     const COLOR_NC = "\033[0m";
     const COLOR_GREEN = "\033[0;32m";
@@ -78,14 +78,14 @@ class FileDataSynchronization
         }
     }
 
-    public function echoFinishedMessage()
+    public function echoFinishedMessage($scriptName = '')
     {
         if ( ! $this->isCLI()) {
             echo "This script is only for CLI environment.\n";
         } else {
             echo "\n";
             $this->echoBreakLine();
-            echo "Finished script\n";
+            echo "Finished script " . $scriptName . "\n";
             echo self::POWERED_BY . PHP_EOL;
             $this->echoBreakLine();
         }
