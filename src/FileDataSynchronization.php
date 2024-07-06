@@ -12,7 +12,7 @@ namespace nguyenanhung\Utils\LazyAutoBuild;
 
 class FileDataSynchronization
 {
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.2';
     const POWERED_BY = 'Powered by Hung Nguyen - hungna.dev@gmail.com';
     const COLOR_NC = "\033[0m";
     const COLOR_GREEN = "\033[0;32m";
@@ -22,13 +22,36 @@ class FileDataSynchronization
     protected $isTest = false;
     protected $homeParentDir;
     protected $homeDir;
+    protected $vendorDir;
     protected $scriptDir;
+    protected $scriptProfileName;
+    protected $scriptProfilePrefix;
+    protected $scriptName;
+    protected $scriptLocation;
 
-    public function __construct($homeParentDir = '/home', $homeDir = '', $scriptDir = '')
-    {
+    public function __construct(
+        $homeParentDir = '/home',
+        $homeDir = '',
+        $vendorDir = '',
+        $scriptDir = ''
+    ) {
         $this->homeParentDir = $homeParentDir;
         $this->homeDir = $homeDir;
+        $this->vendorDir = $vendorDir;
         $this->scriptDir = $scriptDir;
+    }
+
+    public function setupProfile(
+        $scriptProfileName = '',
+        $scriptProfilePrefix = '',
+        $scriptName = '',
+        $scriptLocation = ''
+    ) {
+        $this->scriptProfileName = $scriptProfileName;
+        $this->scriptProfilePrefix = $scriptProfilePrefix;
+        $this->scriptName = $scriptName;
+        $this->scriptLocation = $scriptLocation;
+        return $this;
     }
 
     public function isCLI()
@@ -85,7 +108,7 @@ class FileDataSynchronization
         } else {
             echo "\n";
             $this->echoBreakLine();
-            echo "Finished script " . $scriptName . "\n";
+            echo "Finished " . $scriptName . "\n";
             echo self::POWERED_BY . PHP_EOL;
             $this->echoBreakLine();
         }
@@ -108,6 +131,7 @@ class FileDataSynchronization
             echo $this->textColor(self::COLOR_GREEN, "Run: " . $scriptLocation . "\n");
             echo "\n";
             $this->echoBreakLine();
+            $this->echoPathToRun();
         }
     }
 
@@ -118,8 +142,14 @@ class FileDataSynchronization
         } else {
             echo "HOME_PARENT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeParentDir) . "\n";
             echo "HOME_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeDir) . "\n";
+            echo "VENDOR_DIR: " . $this->textColor(self::COLOR_CYAN, $this->vendorDir) . "\n";
             echo "SCRIPT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->scriptDir) . "\n";
         }
+    }
+
+    public function laravelFunctionName($name = '')
+    {
+        return trim($this->scriptProfileName) . ' -> Update ' . trim($name) . ' to Project Laravel Framework';
     }
 
     public function echoFunctionSync($name = '', $sourceName = '', $sourceDir = '', $targetName = '', $targetDir = '')
