@@ -13,6 +13,7 @@ namespace nguyenanhung\Utils\LazyAutoBuild;
 class FileDataSynchronization
 {
     const VERSION = '1.0.2';
+    const PROJECT_NAME = 'Lazy Auto Build Code';
     const POWERED_BY = 'Powered by Hung Nguyen - hungna.dev@gmail.com';
     const COLOR_NC = "\033[0m";
     const COLOR_GREEN = "\033[0;32m";
@@ -123,7 +124,7 @@ class FileDataSynchronization
             $this->echoAuthor();
             echo $this->textColor(self::COLOR_YELLOW, self::POWERED_BY . "\n");
             echo "\n";
-            echo $this->textColor(self::COLOR_YELLOW, "Lazy Auto Build Code - version " . self::VERSION . "\n");
+            echo $this->textColor(self::COLOR_YELLOW, self::PROJECT_NAME . ' - version ' . self::VERSION . "\n");
             echo "\n";
             echo $this->textColor(self::COLOR_YELLOW, $projectName . "\n");
             echo "\n";
@@ -133,6 +134,7 @@ class FileDataSynchronization
             $this->echoBreakLine();
             $this->echoPathToRun();
         }
+        return $this;
     }
 
     public function echoPathToRun()
