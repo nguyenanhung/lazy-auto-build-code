@@ -37,74 +37,110 @@ class FileDataSynchronization
 
     public function textColor($color, $text)
     {
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+            return false;
+        }
         return $color . $text . "\033[0m";
     }
 
     public function echoBreakLine()
     {
-        echo "===================================================\n";
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+        } else {
+            echo "===================================================\n";
+        }
     }
 
     public function echoAuthor()
     {
-        echo "\n";
-        echo "  _    _                           _   _    _____ \n";
-        echo " | |  | |                         | \\ | |  / ____|\n";
-        echo " | |__| |  _   _   _ __     __ _  |  \\| | | |  __ \n";
-        echo " |  __  | | | | | | '_ \\   / _` | | . ` | | | |_ |\n";
-        echo " | |  | | | |_| | | | | | | (_| | | |\\  | | |__| |\n";
-        echo " |_|  |_|  \\__,_| |_| |_|  \\__, | |_| \\_|  \\_____|\n";
-        echo "                            __/ |                 \n";
-        echo "                           |___/                  \n";
-        echo "\n";
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+        } else {
+            echo "\n";
+            echo "  _    _                           _   _    _____ \n";
+            echo " | |  | |                         | \\ | |  / ____|\n";
+            echo " | |__| |  _   _   _ __     __ _  |  \\| | | |  __ \n";
+            echo " |  __  | | | | | | '_ \\   / _` | | . ` | | | |_ |\n";
+            echo " | |  | | | |_| | | | | | | (_| | | |\\  | | |__| |\n";
+            echo " |_|  |_|  \\__,_| |_| |_|  \\__, | |_| \\_|  \\_____|\n";
+            echo "                            __/ |                 \n";
+            echo "                           |___/                  \n";
+            echo "\n";
+        }
     }
 
     public function echoFinishedMessage()
     {
-        echo "\n";
-        $this->echoBreakLine();
-        echo "Finished script\n";
-        $this->echoBreakLine();
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+        } else {
+            echo "\n";
+            $this->echoBreakLine();
+            echo "Finished script\n";
+            $this->echoBreakLine();
+        }
     }
 
     public function echoHeaderScript($projectName = '', $scriptName = '', $scriptLocation = '')
     {
-        $this->echoBreakLine();
-        $this->echoAuthor();
-        echo $this->textColor(self::COLOR_YELLOW, self::POWERED_BY . "\n");
-        echo "\n";
-        echo $this->textColor(self::COLOR_YELLOW, "Lazy Auto Build Code - version " . self::VERSION . "\n");
-        echo "\n";
-        echo $this->textColor(self::COLOR_YELLOW, $projectName . "\n");
-        echo "\n";
-        echo $this->textColor(self::COLOR_YELLOW, $scriptName . "\n");
-        echo $this->textColor(self::COLOR_GREEN, "Run: " . $scriptLocation . ".\n");
-        echo "\n";
-        $this->echoBreakLine();
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+        } else {
+            $this->echoBreakLine();
+            $this->echoAuthor();
+            echo $this->textColor(self::COLOR_YELLOW, self::POWERED_BY . "\n");
+            echo "\n";
+            echo $this->textColor(self::COLOR_YELLOW, "Lazy Auto Build Code - version " . self::VERSION . "\n");
+            echo "\n";
+            echo $this->textColor(self::COLOR_YELLOW, $projectName . "\n");
+            echo "\n";
+            echo $this->textColor(self::COLOR_YELLOW, $scriptName . "\n");
+            echo $this->textColor(self::COLOR_GREEN, "Run: " . $scriptLocation . ".\n");
+            echo "\n";
+            $this->echoBreakLine();
+        }
     }
 
     public function echoPathToRun()
     {
-        echo "HOME_PARENT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeParentDir) . "\n";
-        echo "HOME_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeDir) . "\n";
-        echo "SCRIPT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->scriptDir) . "\n";
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+        } else {
+            echo "HOME_PARENT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeParentDir) . "\n";
+            echo "HOME_DIR: " . $this->textColor(self::COLOR_CYAN, $this->homeDir) . "\n";
+            echo "SCRIPT_DIR: " . $this->textColor(self::COLOR_CYAN, $this->scriptDir) . "\n";
+        }
     }
 
     public function echoFunctionSync($name = '', $sourceName = '', $sourceDir = '', $targetName = '', $targetDir = '')
     {
-        echo PHP_EOL;
-        echo $this->textColor(self::COLOR_YELLOW, "Script " . $name . "\n");
-        echo $sourceName . ": " . $this->textColor(self::COLOR_CYAN, $sourceDir) . "\n";
-        echo $targetName . ": " . $this->textColor(self::COLOR_CYAN, $targetDir) . "\n";
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+        } else {
+            echo PHP_EOL;
+            echo $this->textColor(self::COLOR_YELLOW, "Script " . $name . "\n");
+            echo $sourceName . ": " . $this->textColor(self::COLOR_CYAN, $sourceDir) . "\n";
+            echo $targetName . ": " . $this->textColor(self::COLOR_CYAN, $targetDir) . "\n";
+        }
     }
 
     public function removeParentHomeDir($dir)
     {
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+            return false;
+        }
         return str_replace($this->homeParentDir, '', $dir);
     }
 
     public function copyFiles($sourceFile, $destinationFile)
     {
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+            return false;
+        }
         if ( ! file_exists($sourceFile)) {
             echo "Source file does not exist: " . $this->textColor(self::COLOR_YELLOW, $sourceFile) . "\n";
             return false;
@@ -141,6 +177,10 @@ class FileDataSynchronization
 
     public function copyDirectory($source, $destination)
     {
+        if ( ! $this->isCLI()) {
+            echo "This script is only for CLI environment.\n";
+            return false;
+        }
         if ( ! is_dir($source)) {
             echo "Source directory does not exist: " . $this->textColor(self::COLOR_YELLOW, $source) . "\n";
             return false;
