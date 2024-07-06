@@ -121,8 +121,12 @@ class FileDataSynchronization
         } else {
             echo PHP_EOL;
             echo $this->textColor(self::COLOR_YELLOW, "Script " . $name . "\n");
-            echo $sourceName . ": " . $this->textColor(self::COLOR_CYAN, $sourceDir) . "\n";
-            echo $targetName . ": " . $this->textColor(self::COLOR_CYAN, $targetDir) . "\n";
+            if ( ! empty($sourceName) && ! empty($sourceDir)) {
+                echo $sourceName . ": " . $this->textColor(self::COLOR_CYAN, $sourceDir) . "\n";
+            }
+            if ( ! empty($targetName) && ! empty($targetDir)) {
+                echo $targetName . ": " . $this->textColor(self::COLOR_CYAN, $targetDir) . "\n";
+            }
         }
     }
 
