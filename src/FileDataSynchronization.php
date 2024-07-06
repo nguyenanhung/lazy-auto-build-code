@@ -115,18 +115,26 @@ class FileDataSynchronization
         }
     }
 
-    public function echoHeaderScript($projectName = '', $scriptName = '', $scriptLocation = '')
+    public function echoHeaderScript($profileName = '', $scriptName = '', $scriptLocation = '')
     {
         if ( ! $this->isCLI()) {
             echo "This script is only for CLI environment.\n";
         } else {
             $this->echoBreakLine();
             $this->echoAuthor();
+            if (empty($profileName)) {
+                $profileName = $this->profileName;
+            }
+            if (empty($scriptName)) {
+                $scriptName = $this->scriptName;
+            }
+            if (empty($scriptLocation)) {
+                $scriptLocation = $this->scriptLocation;
+            }
             echo $this->textColor(self::COLOR_YELLOW, self::POWERED_BY . "\n");
-            echo "\n";
             echo $this->textColor(self::COLOR_YELLOW, self::PROJECT_NAME . ' - version ' . self::VERSION . "\n");
             echo "\n";
-            echo $this->textColor(self::COLOR_YELLOW, $projectName . "\n");
+            echo $this->textColor(self::COLOR_YELLOW, $profileName . "\n");
             echo "\n";
             echo $this->textColor(self::COLOR_YELLOW, $scriptName . "\n");
             echo $this->textColor(self::COLOR_GREEN, "Run: " . $scriptLocation . "\n");
