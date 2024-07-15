@@ -12,7 +12,7 @@ namespace nguyenanhung\Utils\LazyAutoBuild;
 
 class FileDataSynchronization
 {
-    const VERSION = '1.0.2';
+    const VERSION = '1.0.3';
     const PROJECT_NAME = 'Lazy Auto Build Code';
     const POWERED_BY = 'Powered by Hung Nguyen - hungna.dev@gmail.com';
     const COLOR_NC = "\033[0m";
