@@ -1,4 +1,9 @@
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/v)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![Total Downloads](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/downloads)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/v/unstable)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![License](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/license)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/lazy-auto-build-code/require/php)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
+[![Latest Stable Version](https://img.shields.io/packagist/v/nguyenanhung/lazy-auto-build-code.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
+[![Total Downloads](https://img.shields.io/packagist/dt/nguyenanhung/lazy-auto-build-code.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
+[![Daily Downloads](https://img.shields.io/packagist/dd/nguyenanhung/lazy-auto-build-code.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/nguyenanhung/lazy-auto-build-code.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
+[![License](https://img.shields.io/packagist/l/nguyenanhung/lazy-auto-build-code.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/nguyenanhung/lazy-auto-build-code/php)](https://packagist.org/packages/nguyenanhung/lazy-auto-build-code)
 
 # Lazy Automatic Build Code
 
